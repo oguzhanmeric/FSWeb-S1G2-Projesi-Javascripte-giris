@@ -19,6 +19,14 @@ Aşağıdakileri yapın:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
+let surucuYasi = 22;
+if (surucuYasi > 19) {
+  console.log(true);
+}
+else {
+  console.log(false);
+}
+
 
 
 
@@ -33,6 +41,12 @@ Aşağıdakileri yapınız:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
+let birinciDeger = 33;
+let ikinciDeger = 11;
+if (birinciDeger > ikinciDeger) {
+  birinciDeger = 22
+}
+console.log(birinciDeger);
 
 
 
@@ -48,8 +62,8 @@ Aşağıdakileri yapın:
 
    İPUCU: Number metoduna bakabilirsin
 */
-
-
+var string = '1999';
+console.log(parseInt(string));
 
 
 /*
@@ -61,10 +75,11 @@ Aşağıdakileri yaparak carpma isimli fonksiyonu tamamlayın:
    3. console.log(carpma(7,4)) ile yazdığınız fonsiyonu test edin. Console'da sonucu 28 olarak görmelisiniz.
 */
 
-function carpma(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function carpma(number1, number2 ){
+  return number1 * number2 ;
 }
-
+console.log(carpma(7,4));
+console.log(carpma(7,5));
 
 
 
@@ -77,11 +92,11 @@ Aşağıdakileri yapın:
  3. Hesaplanan köpeğin yaşını dönün.
  */
 
-function kopeginYasi(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function kopeginYasi(ageDog){
+  var y = ageDog * 7 ;
+  return y;
 }
-
-
+console.log(kopeginYasi(5));
 
 /* Görev 3 */
 /*
@@ -97,18 +112,31 @@ Aşağıdakileri oyun isimli fonksiyonu kullanarak yapın.
 OYUNUN KURALLARI: Makas Kağıdı yener| Kağıt Taşı yener | Taş Makas'ı yener | veya beraberlik olur.
 */
 
-function oyun(oyuncu, bilgisayar){
-  /*buraya kodunu yazabilirsin*/
+function oyun(kullaniciSecimi, bilgisayarinSecimi) {
+  if (kullaniciSecimi === bilgisayarinSecimi) {
+   return  console.log("Beraberlik");
+  } else if (
+    (kullaniciSecimi === "Taş" && bilgisayarinSecimi === "Kağıt") ||
+    (kullaniciSecimi === "Kağıt" && bilgisayarinSecimi === "Makas") ||
+    (kullaniciSecimi === "Makas" && bilgisayarinSecimi === "Taş")
+  ) {
+     return console.log("Kaybettin!");
+  } else {
+    return console.log("Kazandın!");
+  }
 }
+oyun("Makas", "Kağıt");
+
+
+/*buraya kodunu yazabilirsin*/
 
 // Şimdi Taş, Kağıt, Makas oyununu bilgisayara karşı oynayalım!
 /*
 Öncelikle aşağıdakileri yapın:
 1. Bilgisayarın seçimini rastgele oluşturacağımız bir fonksiyon tanımlayın. Örn: 
-   function bilgisayarinSecimi() {
-   
-   }
-2. Fonsiyonun içinde bilgisayarın seçimi için bir değişken tanımlayın
+function bilgisayarinSecimi() {
+  
+}2. Fonsiyonun içinde bilgisayarın seçimi için bir değişken tanımlayın
 3. Math.random'ı kullanarak bilgisayarın seçimini oluşturun (Math.random 0-1 arasında bir değer verecek)
 4. Bu rastgele değeri "Taş", "Kağıt" veya "Makas"a dönüştüren bir koşul oluşturun
 5. Oluşan değeri geri dönün
@@ -116,6 +144,28 @@ function oyun(oyuncu, bilgisayar){
 Şimdi kendi seçtiğiniz bir seçime karşı bilgisayarın rastgele oluşturduğu seçimi yukarıda yazdığınız oyun fonsiyonu ile oynayın ve sonucu console'a yazdırın.
 Örn: console.log(oyun("Makas",bilgisayarinSecimi()))
 */
+function bilgisayarinSecimi() {
+  const icerik = ["Taş", "Kağıt", "Makas"];
+  const rastgeleSayi = Math.floor(Math.random() * icerik.length);
+  return icerik[rastgeleSayi];
+}
+
+function oyun(kullaniciSecimi, bilgisayarinSecimi) {
+  if (kullaniciSecimi === bilgisayarinSecimi) {
+   return  "Beraberlik";
+  } else if (
+    (kullaniciSecimi === "Taş" && bilgisayarinSecimi === "Kağıt") ||
+    (kullaniciSecimi === "Kağıt" && bilgisayarinSecimi === "Makas") ||
+    (kullaniciSecimi === "Makas" && bilgisayarinSecimi === "Taş")
+  ) {
+     return "Kaybettin!";
+  } else {
+    return "Kazandın!";
+  }
+}
+console.log(oyun("Makas", bilgisayarinSecimi()));
+
+
 
 /* Görev 4 : Metrik Dönüştürücü */
 
@@ -127,9 +177,11 @@ Aşağdaki milDonusturucu fonksiyonunu aşağıdakileri kullanarak tamamlayın:
 3. Mil değerini geri dönün
 */
 
-function milDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function milDonusturucu(km){
+const mile = km * 0.621371;
+  return mile;
 }
+console.log(milDonusturucu(11));
 
 
 
@@ -142,10 +194,11 @@ Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yapın:
 
 Google'da arama ipucu: "feet cm dönüştürme"
 */
-
-function feetDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
-}
+function feetDonusturucu(cm){
+  const feet = cm / 30.48;
+    return feet;
+  }
+  console.log(feetDonusturucu(1500));
 
 
 
@@ -162,12 +215,22 @@ Aşağıdakileri cocukSarkisi fonksiyonunda yapın:
 4. Bu döngüde, her seferinde cocukSarkisi fonsiyonu çalışsın ve console.log'a dönen metni yazdırsın.
 */
 
-function cocukSarkisi(/*buraya kodunu yazabilirsin*/){
-      /*buraya kodunu yazabilirsin*/
+function cocukSarkisi(sayi) {
+  return (
+    sayi +
+    " küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!"
+  );
+}
+for (let i = 5; i > 0; i--) {
+  console.log(cocukSarkisi(i));
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 }
 
 
 /* Görev 6 : Not Hesaplayıcı */
+
+
 
 /*
 Aşağdakileri notHesapla fonksiyonunda yapın.
@@ -182,10 +245,20 @@ Aşağdakileri notHesapla fonksiyonunda yapın.
  dönün
 */
 
-function notHesapla(/*buraya kodunu yazabilirsin*/){
-/*buraya kodunu yazabilirsin*/
+function notHesapla(not) {
+  if (90 <= not && not <= 100) {
+    return "A aldın";
+  } else if (80 <= not && not < 90) {
+    return "B aldın";
+  } else if (70 <= not && not < 80) {
+    return "C aldın";
+  } else if (60 <= not && not < 70) {
+    return "D aldın";
+  } else if (not < 60) {
+    return "F aldın";
+  }
 }
-
+console.log(notHesapla(77));
 
 
 /* Bonus Çalışma: Sesli harf sayacı - Kaç tane sesli harf var? */
@@ -200,9 +273,19 @@ Aşağıdakileri sesliHarfSayaci fonskiyonunda yapın.
 */
 
 
-function sesliHarfSayaci(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function sesliHarfSayaci(metin) {
+  
+  
+  let sesliHarfler = ["a", "e", "ı", "i", "o", "ö", "u", "ü"];
+  let sayi = 0;
+  for (let i = 0; i < metin.length; i++) {
+    if (sesliHarfler.includes(metin[i].toLowerCase())) {
+      sayi = sayi + 1; 
+    }
+  }
+  return sayi;
 }
+console.log(sesliHarfSayaci("oguzhan meric workintech"));
 
 
 
